@@ -23,7 +23,7 @@
 
 using System;
 using System.Collections.Generic;
-
+using System.Reflection;
 using TagLib.Jpeg;
 using TagLib.Gif;
 using TagLib.IFD;
@@ -214,7 +214,7 @@ namespace TagLib.Image
 			EnsureAvailableTags ();
 			var from_tag = file.ImageTag;
 			var to_tag = ImageTag;
-			foreach (var prop in typeof (TagLib.Image.ImageTag).GetProperties ()) {
+			foreach (var prop in ImageTag.GetType().GetTypeInfo().GetProperties()) {
 				if (!prop.CanWrite || prop.Name == "TagTypes")
 					continue;
 

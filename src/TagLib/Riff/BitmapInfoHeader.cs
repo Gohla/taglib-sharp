@@ -338,7 +338,7 @@ namespace TagLib.Riff
 		public string Description {
 			get {
 				string id = CompressionId.ToString (StringType.UTF8)
-					.ToUpper (CultureInfo.InvariantCulture);
+					.ToUpperInvariant();
 				switch (id)
 				{
 				case "AEMI":
